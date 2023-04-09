@@ -58,3 +58,31 @@ exact 속성을 사용하지 않으면, <Route> 컴포넌트는 경로의 첫 �
 Material-UI에서는 spacing 값으로 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, auto를 제공하며, 기본값은 8입니다. 이 값들은 각각 4px, 8px, 16px, 24px, 32px, 40px, 48px, 56px, 64px, 72px, 80px, 자동의 의미를 가집니다.
 
 예를 들어, spacing={2}와 같이 설정하면 해당 요소의 여백이 16px로 설정됩니다. 이 속성은 Grid, Box, IconButton, Paper, TextField 등 다양한 Material-UI 컴포넌트에서 사용됩니다.
+
+---
+
+useParams는 React Router 라이브러리에서 제공하는 훅(hook) 중 하나입니다. 이 훅은 React 컴포넌트에서 현재 URL 경로에서 파라미터를 추출하는 데 사용됩니다.
+
+예를 들어, 다음과 같은 라우트가 있다고 가정해 봅시다.
+
+php
+Copy code
+<Route path="/users/:id" component={UserDetails} />
+그리고 UserDetails 컴포넌트에서 id 파라미터를 가져오고 싶다면, 다음과 같이 useParams를 사용할 수 있습니다.
+
+jsx
+Copy code
+import { useParams } from 'react-router-dom';
+
+function UserDetails() {
+const { id } = useParams();
+
+return (
+
+<div>
+<h2>사용자 정보</h2>
+<p>사용자 ID: {id}</p>
+</div>
+);
+}
+이 예제에서 useParams는 현재 URL의 파라미터 값을 포함하는 객체를 반환합니다. id 변수는 useParams에서 반환된 객체의 id 속성값에 할당됩니다.
